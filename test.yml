@@ -6,6 +6,12 @@ on:
 jobs:
   fail-test:
     runs-on: ubuntu-latest
+
     steps:
-      - name: Force fail
-        run: exit 1
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Force workflow failure
+        run: |
+          echo "This is a test failure for checking GitHub email notifications."
+          exit 1
