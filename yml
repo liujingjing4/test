@@ -1,0 +1,11 @@
+name: Test Failed Notification
+
+on:
+  workflow_dispatch:
+
+jobs:
+  fail-test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Force fail
+        run: exit 1
