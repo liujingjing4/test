@@ -1,6 +1,9 @@
-name: Test Failed Notification
+name: Force Failed Test
 
 on:
+  push:
+    branches:
+      - main
   workflow_dispatch:
 
 jobs:
@@ -8,10 +11,8 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v4
-
-      - name: Force workflow failure
+      - name: This step must fail
         run: |
-          echo "This is a test failure for checking GitHub email notifications."
-          exit 1
+          echo "Start failure test"
+          nonexistent_command_for_test_123456
+          echo "This line should not run"
